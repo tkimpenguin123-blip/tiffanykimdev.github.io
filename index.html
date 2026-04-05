@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiffany Kim — Full-Stack .NET Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --bg:#0e0e0e;--bg2:#161616;--bg3:#1e1e1e;
+  --txt:#f0ede8;--txt2:#999;--txt3:#666;
+  --accent:#d4f57a;--border:rgba(255,255,255,0.08);
+  --card:#181818;
+}
+.light{
+  --bg:#f5f3ef;--bg2:#eeebe5;--bg3:#e5e2db;
+  --txt:#1a1a1a;--txt2:#555;--txt3:#999;
+  --accent:#3a7a1a;--border:rgba(0,0,0,0.08);
+  --card:#fff;
+}
+body{background:var(--bg);color:var(--txt);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden;transition:background 0.3s,color 0.3s}
+.glow{pointer-events:none;position:fixed;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,245,122,0.07) 0%,transparent 70%);transform:translate(-50%,-50%);top:0;left:0;z-index:0}
+.light .glow{background:radial-gradient(circle,rgba(58,122,26,0.06) 0%,transparent 70%)}
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;position:relative;z-index:1;max-width:1100px;margin:0 auto}
+aside{position:sticky;top:0;height:100vh;padding:3rem 2rem;display:flex;flex-direction:column;justify-content:space-between;border-right:0.5px solid var(--border)}
+.tk-tag{font-size:11px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;font-weight:500}
+.side-name{font-family:'Instrument Serif',serif;font-size:2rem;line-height:1.1;margin-bottom:0.4rem}
+.side-role{font-size:13px;color:var(--txt2);line-height:1.6;margin-bottom:2.5rem}
+nav{display:flex;flex-direction:column;gap:4px}
+.nav-item{display:flex;align-items:center;gap:12px;padding:8px 0;color:var(--txt3);font-size:13px;letter-spacing:0.5px;text-decoration:none;transition:color 0.2s;position:relative}
+.nav-item::before{content:'';width:24px;height:0.5px;background:var(--txt3);transition:width 0.3s,background 0.3s;flex-shrink:0}
+.nav-item.active,.nav-item:hover{color:var(--txt)}
+.nav-item.active::before,.nav-item:hover::before{width:40px;background:var(--accent)}
+.side-bottom{display:flex;flex-direction:column;gap:1rem}
+.social-links{display:flex;gap:12px;flex-wrap:wrap}
+.social-links a{font-size:12px;color:var(--txt3);text-decoration:none;transition:color 0.2s;letter-spacing:0.5px}
+.social-links a:hover{color:var(--accent)}
+.theme-btn{background:none;border:0.5px solid var(--border);color:var(--txt2);padding:6px 14px;border-radius:100px;font-size:11px;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:1px;transition:all 0.2s;text-align:left}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+main{padding:5rem 3rem;display:flex;flex-direction:column;gap:8rem}
+section{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+section.visible{opacity:1;transform:translateY(0)}
+.sec-num{font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.2rem}
+.hero-big{font-family:'Instrument Serif',serif;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.05;letter-spacing:-1px;margin-bottom:1.5rem;color:var(--txt)}
+.hero-big .pop{font-style:italic;color:var(--accent)}
+.hero-big .plain{font-style:italic;color:var(--txt)}
+.hero-sub{font-size:15px;color:var(--txt2);line-height:1.9;max-width:480px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:100px;font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s;font-family:'Syne',sans-serif;letter-spacing:0.5px;cursor:pointer;border:none}
+.btn-accent{background:var(--accent);color:#0e0e0e}
+.btn-accent:hover{opacity:0.85;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--txt);border:0.5px solid var(--border)}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.3);transform:translateY(-1px)}
+.light .btn-ghost:hover{border-color:rgba(0,0,0,0.25)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:16px;overflow:hidden;margin-top:3rem}
+.stat{background:var(--bg2);padding:1.5rem 1rem;text-align:center}
+.stat-n{font-family:'Instrument Serif',serif;font-size:2.2rem;color:var(--txt)}
+.stat-l{font-size:11px;color:var(--txt3);margin-top:4px;letter-spacing:0.5px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;align-items:start}
+.about-body{font-size:15px;color:var(--txt2);line-height:1.9}
+.about-body p{margin-bottom:1rem}
+.fishing-card{border-radius:20px;overflow:hidden;border:0.5px solid var(--border)}
+.fishing-card img{width:100%;height:340px;object-fit:cover;object-position:center 20%;display:block;transition:transform 0.5s}
+.fishing-card:hover img{transform:scale(1.04)}
+.fishing-caption{padding:12px 16px;background:var(--bg2);font-size:12px;color:var(--txt3);line-height:1.6}
+.fishing-caption strong{color:var(--accent);font-weight:500;display:block;margin-bottom:2px}
+.hobbies{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem}
+.hobby{font-size:12px;padding:4px 12px;border-radius:100px;border:0.5px solid var(--border);color:var(--txt3)}
+.skills-groups{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:0.5rem}
+.skill-group-title{font-size:11px;letter-spacing:1.5px;color:var(--txt3);text-transform:uppercase;margin-bottom:0.8rem}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:12px;padding:5px 12px;border-radius:100px;border:0.5px solid var(--border);color:var(--txt2);transition:all 0.2s}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.pill.core{background:var(--accent);color:#0e0e0e;border-color:var(--accent);font-weight:500}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bento-card{background:var(--card);border:0.5px solid var(--border);border-radius:20px;padding:1.8rem;transition:transform 0.25s,border-color 0.25s}
+.bento-card:hover{transform:translateY(-4px);border-color:rgba(212,245,122,0.2)}
+.light .bento-card:hover{border-color:rgba(58,122,26,0.2)}
+.bento-card.wide{grid-column:span 2}
+.bento-tag{display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:100px;background:var(--bg3);color:var(--txt3);margin-bottom:1rem}
+.bento-title{font-size:16px;font-weight:500;margin-bottom:0.6rem}
+.bento-desc{font-size:13px;color:var(--txt2);line-height:1.7;margin-bottom:1.2rem}
+.stack{display:flex;flex-wrap:wrap;gap:5px}
+.stk{font-size:11px;padding:3px 8px;border-radius:6px;background:var(--bg3);color:var(--txt3)}
+.exp-items{display:flex;flex-direction:column}
+.exp-row{display:grid;grid-template-columns:130px 1fr;gap:2rem;padding:2.5rem 0;border-bottom:0.5px solid var(--border)}
+.exp-row:first-child{padding-top:0}
+.exp-row:last-child{border-bottom:none}
+.exp-yr{font-size:12px;color:var(--txt3);line-height:1.8;padding-top:2px}
+.exp-co{font-size:15px;font-weight:500;margin-bottom:2px}
+.exp-ttl{font-size:12px;color:var(--accent);margin-bottom:1rem;letter-spacing:0.3px}
+.exp-li{list-style:none;padding:0}
+.exp-li li{font-size:13px;color:var(--txt2);padding:4px 0 4px 16px;position:relative;line-height:1.6}
+.exp-li li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:0.5px;background:var(--accent)}
+.edu-row{display:grid;grid-template-columns:130px 1fr;gap:2rem;padding:2rem 0;border-bottom:0.5px solid var(--border)}
+.edu-row:last-child{border-bottom:none}
+.edu-yr{font-size:12px;color:var(--txt3)}
+.edu-school{font-size:14px;font-weight:500;margin-bottom:2px}
+.edu-deg{font-size:13px;color:var(--txt2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-intro{font-size:22px;font-family:'Instrument Serif',serif;line-height:1.4;margin-bottom:1rem}
+.contact-sub{font-size:14px;color:var(--txt2);line-height:1.8;margin-bottom:2rem}
+.clink{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.2rem;border:0.5px solid var(--border);border-radius:14px;text-decoration:none;color:var(--txt);margin-bottom:10px;transition:all 0.2s}
+.clink:hover{border-color:var(--accent);transform:translateX(4px)}
+.clink-l{font-size:11px;color:var(--txt3);margin-bottom:2px;letter-spacing:0.5px}
+.clink-v{font-size:13px;font-weight:500}
+.clink-arr{color:var(--accent);font-size:16px;flex-shrink:0}
+.resume-card{background:var(--bg2);border-radius:20px;padding:2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:0.5px solid var(--border);gap:1rem;height:100%;min-height:280px}
+.resume-card p{font-size:13px;color:var(--txt2);line-height:1.7}
+footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3);letter-spacing:0.5px}
+@media(max-width:720px){
+  .layout{grid-template-columns:1fr}
+  aside{position:relative;height:auto;padding:2rem;border-right:none;border-bottom:0.5px solid var(--border)}
+  nav{flex-direction:row;flex-wrap:wrap;gap:8px}
+  .nav-item::before{display:none}
+  main{padding:3rem 1.5rem;gap:5rem}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}
+  .bento-card.wide{grid-column:span 1}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .skills-groups{grid-template-columns:1fr}
+  .exp-row,.edu-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="glow" id="glow"></div>
+
+<div class="layout">
+  <aside>
+    <div class="side-top">
+      <div class="tk-tag">Portfolio</div>
+      <div class="side-name">Tiffany<br>Kim</div>
+      <div class="side-role">Full-Stack .NET Developer<br>Garden Grove, CA</div>
+      <nav>
+        <a class="nav-item active" href="#about">About</a>
+        <a class="nav-item" href="#skills">Skills</a>
+        <a class="nav-item" href="#projects">Projects</a>
+        <a class="nav-item" href="#experience">Experience</a>
+        <a class="nav-item" href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="side-bottom">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/tiffany-kim-b24966171/" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:tkim.work1@gmail.com">Email ↗</a>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()">Toggle light mode</button>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <div class="sec-num">01 — About</div>
+      <h1 class="hero-big"><span class="plain">I build software<br>that </span><span class="pop">ships</span><span class="plain"> and<br></span><span class="pop">stays working.</span></h1>
+      <p class="hero-sub">Full-stack Software Engineer with 7+ years building production web applications end-to-end. Comfortable owning complete projects — from architecting REST APIs to shipping polished front-end experiences.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-accent">Get in touch</a>
+        <a href="https://www.linkedin.com/in/tiffany-kim-b24966171/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-n">7+</div><div class="stat-l">Years exp.</div></div>
+        <div class="stat"><div class="stat-n">400+</div><div class="stat-l">Bugs resolved</div></div>
+        <div class="stat"><div class="stat-n">6mo</div><div class="stat-l">To lead role</div></div>
+        <div class="stat"><div class="stat-n">3</div><div class="stat-l">Engineers led</div></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-num">02 — Skills & About</div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>I've spent 7+ years in a Microsoft-first environment — C#, ASP.NET, SQL Server, jQuery, and Azure are my daily tools. I own the full DevOps and testing lifecycle end to end, and bring React and Node.js to the table as well.</p>
+          <p>Outside of work I love deep sea fishing. I caught this alligator gar in Texas — one of the most intense fights I've ever had on the water. I also boulder and play tennis. Always up for a challenge on and off the keyboard.</p>
+          <div class="hobbies">
+            <span class="hobby">Deep sea fishing</span>
+            <span class="hobby">Bouldering</span>
+            <span class="hobby">Tennis</span>
+          </div>
+        </div>
+        <div class="fishing-card">
+          <img src="tiffany_fishing.jpeg" alt="Tiffany Kim with a massive alligator gar caught in Texas" />
+          <div class="fishing-caption">
+            <strong>Alligator gar — Texas</strong>
+            One of the most intense fights on the water. Worth every second.
+          </div>
+        </div>
+      </div>
+      <div class="skills-groups">
+        <div>
+          <div class="skill-group-title">Core stack</div>
+          <div class="pills">
+            <span class="pill core">C#</span>
+            <span class="pill core">ASP.NET MVC</span>
+            <span class="pill core">SQL Server</span>
+            <span class="pill core">jQuery</span>
+            <span class="pill core">Kendo UI</span>
+            <span class="pill core">REST APIs</span>
+            <span class="pill core">JavaScript</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Frontend</div>
+          <div class="pills">
+            <span class="pill">React.js</span>
+            <span class="pill">Redux</span>
+            <span class="pill">HTML / CSS / SCSS</span>
+            <span class="pill">Bootstrap</span>
+            <span class="pill">MUI</span>
+            <span class="pill">Node.js</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Cloud & DevOps</div>
+          <div class="pills">
+            <span class="pill">Azure DevOps</span>
+            <span class="pill">Azure Key Vault</span>
+            <span class="pill">App Insights</span>
+            <span class="pill">CI/CD Pipelines</span>
+            <span class="pill">Git / GitHub</span>
+            <span class="pill">Postman</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Testing & process</div>
+          <div class="pills">
+            <span class="pill">Playwright E2E</span>
+            <span class="pill">Unit Testing</span>
+            <span class="pill">Jira</span>
+            <span class="pill">Figma</span>
+            <span class="pill">Agile / Scrum</span>
+            <span class="pill">DevExpress</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sec-num">03 — Projects</div>
+      <div class="bento">
+        <div class="bento-card wide">
+          <div class="bento-tag">Greenfield · Revenue generating</div>
+          <div class="bento-title">Two-Way SMS & Communications Platform</div>
+          <p class="bento-desc">Built end-to-end from requirements through post-release support. Integrated Twilio for inbound and outbound SMS, plus automated fax support — all directly within the platform. Monitored via Azure Application Insights. Generated direct company revenue.</p>
+          <div class="stack"><span class="stk">C#</span><span class="stk">Twilio</span><span class="stk">REST API</span><span class="stk">jQuery</span><span class="stk">Azure DevOps</span><span class="stk">App Insights</span></div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-tag">Team lead · 3 engineers</div>
+          <div class="bento-title">Global Search</div>
+          <p class="bento-desc">Led a team of 3 to ship a high-performance search feature traversing millions of records with optimized SQL queries and responsive Kendo UI.</p>
+          <div class="stack"><span class="stk">C#</span><span class="stk">SQL Server</span><span class="stk">jQuery</span><span class="stk">Kendo UI</span><span class="stk">ASP.NET</span></div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-tag">Greenfield · Full ownership</div>
+          <div class="bento-title">Escrow Review Application</div>
+          <p class="bento-desc">Designed and built from scratch — Figma wireframes, REST API backend, and complete front-end UI. Streamlined a previously manual client workflow entirely.</p>
+          <div class="stack"><span class="stk">C#</span><span class="stk">ASP.NET</span><span class="stk">SQL Server</span><span class="stk">jQuery</span><span class="stk">Figma</span></div>
+        </div>
+        <div class="bento-card wide">
+          <div class="bento-tag">DevOps · Pipeline integration · Security</div>
+          <div class="bento-title">Playwright E2E Testing Pipeline</div>
+          <p class="bento-desc">Built a full Playwright E2E test suite from zero — covering login, dashboard, and edit lead flows — integrated as a postRouteTraffic step in the Azure DevOps beta deploy pipeline. Handled TOTP authentication and managed secrets securely via Azure Key Vault.</p>
+          <div class="stack"><span class="stk">Playwright</span><span class="stk">Azure DevOps</span><span class="stk">Azure Key Vault</span><span class="stk">CI/CD</span><span class="stk">TOTP Auth</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-num">04 — Experience & Education</div>
+      <div class="exp-items">
+        <div class="exp-row">
+          <div class="exp-yr">Apr 2019 –<br>Mar 2026<br><br>7 yrs 1 mo</div>
+          <div>
+            <div class="exp-co">National Data Systems</div>
+            <div class="exp-ttl">Software Engineer II · Front-End Lead</div>
+            <ul class="exp-li">
+              <li>Promoted to Front-End Lead within 6 months for exceptional performance and end-to-end technical ownership</li>
+              <li>Owned complete projects independently — designed and built an internal escrow review application from scratch including full front-end UI and REST API backend</li>
+              <li>Built and maintained user-facing features using jQuery, vanilla JavaScript, and C# ASP.NET including DOM manipulation, form validation, and API integrations</li>
+              <li>Expanded core product with Two-Factor Authentication, SMS integrations, fax support, enhanced navigation, and redesigned dashboards</li>
+              <li>Led a team of 3 to ship a global search across millions of records using JS, C#, ASP.NET, Kendo, and SQL</li>
+              <li>Built a Playwright E2E test suite integrated into Azure DevOps beta deploy pipeline as a postRouteTraffic step with TOTP auth and secrets via Azure Key Vault</li>
+              <li>Refactored file export process by migrating legacy exports to updated SQL connections, improving reliability across all report workflows</li>
+              <li>Resolved 400+ bugs, collaborated on sprint planning and backlog refinement — used Jira daily, migrated to Azure DevOps</li>
+              <li>Led UX/UI improvements using Figma wireframes to clarify user flows before development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:2rem">
+        <div class="edu-row">
+          <div class="edu-yr">Fall 2017</div>
+          <div>
+            <div class="edu-school">California State University, Fullerton</div>
+            <div class="edu-deg">B.S. — Relevant coursework: Java, Python, C++, C#, SPSS</div>
+          </div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-yr">Fall 2018</div>
+          <div>
+            <div class="edu-school">Learning Fuze, Irvine CA</div>
+            <div class="edu-deg">Web Development Program</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sec-num">05 — Contact</div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-intro">Open to remote .NET roles.<br>Let's talk.</div>
+          <p class="contact-sub">I'm currently available for full-time opportunities. Most interested in product companies where engineers take real ownership from day one.</p>
+          <a href="mailto:tkim.work1@gmail.com" class="clink">
+            <div><div class="clink-l">Email</div><div class="clink-v">tkim.work1@gmail.com</div></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="tel:7144684072" class="clink">
+            <div><div class="clink-l">Phone</div><div class="clink-v">(714) 468-4072</div></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/tiffany-kim-b24966171/" target="_blank" class="clink">
+            <div><div class="clink-l">LinkedIn</div><div class="clink-v">tiffany-kim-b24966171</div></div>
+            <span class="clink-arr">↗</span>
+          </a>
+          <a href="#" class="clink">
+            <div><div class="clink-l">Location</div><div class="clink-v">Garden Grove, CA</div></div>
+            <span class="clink-arr"></span>
+          </a>
+        </div>
+        <div class="resume-card">
+          <div style="font-size:2.5rem">&#128196;</div>
+          <p>Download my resume for the full picture — 7 years of enterprise .NET, Azure, and full-stack ownership.</p>
+          <a href="Tiffany_Kim_Resume.pdf" download class="btn btn-accent">Download resume</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>© 2026 Tiffany Kim · Garden Grove, CA · Full-Stack .NET Developer · tkim.work1@gmail.com</footer>
+
+<script>
+const glow=document.getElementById('glow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+function toggleTheme(){document.body.classList.toggle('light');const btn=document.querySelector('.theme-btn');btn.textContent=document.body.classList.contains('light')?'Toggle dark mode':'Toggle light mode'}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');const id=e.target.id;document.querySelectorAll('.nav-item').forEach(n=>{n.classList.toggle('active',n.getAttribute('href')==='#'+id)})}})},{threshold:0.15});
+document.querySelectorAll('section').forEach((s,i)=>{s.style.transitionDelay=(i*0.08)+'s';obs.observe(s)});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+</script>
+</body>
+</html>
