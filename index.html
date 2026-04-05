@@ -62,8 +62,8 @@ section.visible{opacity:1;transform:translateY(0)}
 .about-body{font-size:15px;color:var(--txt2);line-height:1.9}
 .about-body p{margin-bottom:1rem}
 .fishing-card{border-radius:20px;overflow:hidden;border:0.5px solid var(--border)}
-.fishing-card img{width:100%;height:340px;object-fit:cover;object-position:center 20%;display:block;transition:transform 0.5s}
-.fishing-card:hover img{transform:scale(1.04)}
+.fishing-card img{width:100%;height:auto;display:block;transition:transform 0.5s}
+.fishing-card:hover img{transform:scale(1.02)}
 .fishing-caption{padding:12px 16px;background:var(--bg2);font-size:12px;color:var(--txt3);line-height:1.6}
 .fishing-caption strong{color:var(--accent);font-weight:500;display:block;margin-bottom:2px}
 .hobbies{display:flex;gap:8px;flex-wrap:wrap;margin-top:1rem}
@@ -146,7 +146,7 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
     <div class="side-bottom">
       <div class="social-links">
         <a href="https://www.linkedin.com/in/tiffany-kim-b24966171/" target="_blank">LinkedIn ↗</a>
-        <a href="mailto:tkim.work1@gmail.com">Email ↗</a>
+        <a href="/cdn-cgi/l/email-protection#f6829d9f9bd88199849dc7b6919b979f9ad895999b">Email ↗</a>
       </div>
       <button class="theme-btn" onclick="toggleTheme()">Toggle light mode</button>
     </div>
@@ -174,7 +174,7 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
       <div class="about-grid">
         <div class="about-body">
           <p>I've spent 7+ years in a Microsoft-first environment — C#, ASP.NET, SQL Server, jQuery, and Azure are my daily tools. I own the full DevOps and testing lifecycle end to end, and bring React and Node.js to the table as well.</p>
-          <p>Outside of work I love deep sea fishing. I caught this alligator gar in Texas — one of the most intense fights I've ever had on the water. I also boulder and play tennis. Always up for a challenge on and off the keyboard.</p>
+          <p>Outside of work I love deep sea fishing — catching yellowtail on the open ocean is one of my favorite ways to recharge. I also boulder and play tennis. Always up for a challenge on and off the keyboard.</p>
           <div class="hobbies">
             <span class="hobby">Deep sea fishing</span>
             <span class="hobby">Bouldering</span>
@@ -182,10 +182,10 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
           </div>
         </div>
         <div class="fishing-card">
-          <img src="tiffany_fishing.jpeg" alt="Tiffany Kim with a massive alligator gar caught in Texas" />
+          <img src="tiffany_fishing.jpeg" alt="Tiffany Kim holding two yellowtail on a deep sea fishing boat" />
           <div class="fishing-caption">
-            <strong>Alligator gar — Texas</strong>
-            One of the most intense fights on the water. Worth every second.
+            <strong>Yellowtail — deep sea fishing trip</strong>
+            Two yellowtail on the same trip. Nothing beats a day like this on the open ocean.
           </div>
         </div>
       </div>
@@ -314,8 +314,8 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
         <div>
           <div class="contact-intro">Open to remote .NET roles.<br>Let's talk.</div>
           <p class="contact-sub">I'm currently available for full-time opportunities. Most interested in product companies where engineers take real ownership from day one.</p>
-          <a href="mailto:tkim.work1@gmail.com" class="clink">
-            <div><div class="clink-l">Email</div><div class="clink-v">tkim.work1@gmail.com</div></div>
+          <a href="/cdn-cgi/l/email-protection#8bffe0e2e6a5fce4f9e0bacbece6eae2e7a5e8e4e6" class="clink">
+            <div><div class="clink-l">Email</div><div class="clink-v"><span class="__cf_email__" data-cfemail="93e7f8fafebde4fce1f8a2d3f4fef2faffbdf0fcfe">[email&#160;protected]</span></div></div>
             <span class="clink-arr">↗</span>
           </a>
           <a href="tel:7144684072" class="clink">
@@ -341,15 +341,10 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
   </main>
 </div>
 
-<footer>© 2026 Tiffany Kim · Garden Grove, CA · Full-Stack .NET Developer · tkim.work1@gmail.com</footer>
+<footer>© 2026 Tiffany Kim · Garden Grove, CA · Full-Stack .NET Developer · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2a6b9bbbffca5bda0b9e392b5bfb3bbbefcb1bdbf">[email&#160;protected]</a></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const glow=document.getElementById('glow');
 document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
 function toggleTheme(){document.body.classList.toggle('light');const btn=document.querySelector('.theme-btn');btn.textContent=document.body.classList.contains('light')?'Toggle dark mode':'Toggle light mode'}
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');const id=e.target.id;document.querySelectorAll('.nav-item').forEach(n=>{n.classList.toggle('active',n.getAttribute('href')==='#'+id)})}})},{threshold:0.15});
-document.querySelectorAll('section').forEach((s,i)=>{s.style.transitionDelay=(i*0.08)+'s';obs.observe(s)});
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
-</script>
-</body>
-</html>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');const id=e.target.id;document.querySelectorAll('.nav-item').forEach(n=>{n.classList.toggle
