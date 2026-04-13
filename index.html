@@ -165,7 +165,7 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
         <div class="stat"><div class="stat-n">7+</div><div class="stat-l">Years exp.</div></div>
         <div class="stat"><div class="stat-n">400+</div><div class="stat-l">Bugs resolved</div></div>
         <div class="stat"><div class="stat-n">6mo</div><div class="stat-l">To lead role</div></div>
-        <div class="stat"><div class="stat-n">3</div><div class="stat-l">Engineers led</div></div>
+        <div class="stat"><div class="stat-n">&lt;2wk</div><div class="stat-l">Idea to prod</div></div>
       </div>
     </section>
 
@@ -195,7 +195,10 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
           <div class="pills">
             <span class="pill core">C#</span>
             <span class="pill core">ASP.NET MVC</span>
+            <span class="pill core">ASP.NET Core</span>
             <span class="pill core">SQL Server</span>
+            <span class="pill core">PostgreSQL</span>
+            <span class="pill core">Entity Framework Core</span>
             <span class="pill core">jQuery</span>
             <span class="pill core">Kendo UI</span>
             <span class="pill core">REST APIs</span>
@@ -207,6 +210,7 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
           <div class="pills">
             <span class="pill">React.js</span>
             <span class="pill">Redux</span>
+            <span class="pill">Vite</span>
             <span class="pill">HTML / CSS / SCSS</span>
             <span class="pill">Bootstrap</span>
             <span class="pill">MUI</span>
@@ -221,6 +225,8 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
             <span class="pill">App Insights</span>
             <span class="pill">CI/CD Pipelines</span>
             <span class="pill">Git / GitHub</span>
+            <span class="pill">Vercel</span>
+            <span class="pill">Railway</span>
             <span class="pill">Postman</span>
           </div>
         </div>
@@ -265,12 +271,33 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
           <p class="bento-desc">Built a full Playwright E2E test suite from zero &mdash; covering login, dashboard, and edit lead flows &mdash; integrated as a postRouteTraffic step in the Azure DevOps beta deploy pipeline. Handled TOTP authentication and managed secrets securely via Azure Key Vault.</p>
           <div class="stack"><span class="stk">Playwright</span><span class="stk">Azure DevOps</span><span class="stk">Azure Key Vault</span><span class="stk">CI/CD</span><span class="stk">TOTP Auth</span></div>
         </div>
+        <div class="bento-card wide">
+          <div class="bento-tag">Personal project &middot; Live in production &middot; <a href="https://thehumanhive.net" target="_blank" style="color:var(--accent);text-decoration:none;">thehumanhive.net &#8599;</a></div>
+          <div class="bento-title">The Human Hive &mdash; Community Forum Platform</div>
+          <p class="bento-desc">Built and shipped a full-stack community forum platform from idea to production in under two weeks. React + Vite frontend with inline reply flows and real-time upvoting; ASP.NET Core Web API backend with Entity Framework Core and PostgreSQL. Implemented JWT auth, optional SMS phone verification, bot protection, and rate limiting. Deployed frontend to Vercel with custom domain and SPA routing; API on Railway. Improved page load time 75%+ with targeted PostgreSQL indexes on critical query paths.</p>
+          <div class="stack"><span class="stk">React + Vite</span><span class="stk">ASP.NET Core</span><span class="stk">Entity Framework Core</span><span class="stk">PostgreSQL</span><span class="stk">JWT Auth</span><span class="stk">Vercel</span><span class="stk">Railway</span></div>
+        </div>
       </div>
     </section>
 
     <section id="experience">
       <div class="sec-num">04 &mdash; Experience &amp; Education</div>
       <div class="exp-items">
+        <div class="exp-row">
+          <div class="exp-yr">Apr 2026 &ndash;<br>Present<br><br><a href="https://thehumanhive.net" target="_blank" style="color:var(--accent);text-decoration:none;font-size:11px;">thehumanhive.net &#8599;</a></div>
+          <div>
+            <div class="exp-co">The Human Hive</div>
+            <div class="exp-ttl">Full-Stack Personal Project</div>
+            <ul class="exp-li">
+              <li>Built a production community forum platform from scratch &mdash; React + Vite frontend with component-based architecture, inline reply flows, and real-time upvoting without page reloads</li>
+              <li>Architected and shipped a RESTful ASP.NET Core Web API with Entity Framework Core and PostgreSQL (Railway), covering auth, posts, hive membership, and upvoting end-to-end</li>
+              <li>Implemented JWT-based authentication with optional SMS phone verification; added bot protection and rate limiting on post endpoints</li>
+              <li>Deployed frontend to Vercel with a custom domain and SPA routing config; managed API secrets and environment variables on Railway</li>
+              <li>Improved page load time by 75%+ by adding targeted PostgreSQL indexes on membership, post creation, and flagging columns</li>
+              <li>Shipped idea to live production app in under two weeks</li>
+            </ul>
+          </div>
+        </div>
         <div class="exp-row">
           <div class="exp-yr">Apr 2019 &ndash;<br>Mar 2026<br><br>7 yrs 1 mo</div>
           <div>
@@ -312,7 +339,7 @@ footer{text-align:center;padding:1rem 3rem 3rem;font-size:11px;color:var(--txt3)
       <div class="sec-num">05 &mdash; Contact</div>
       <div class="contact-grid">
         <div>
-          <div class="contact-intro">Open to remote .NET roles.<br>Let's talk.</div>
+          <div class="contact-intro">Open to full-stack &amp; .NET roles.<br>Let's talk.</div>
           <p class="contact-sub">I'm currently available for full-time opportunities. Most interested in product companies where engineers take real ownership from day one.</p>
           <a href="mailto:tkim.work1@gmail.com" class="clink">
             <div><div class="clink-l">Email</div><div class="clink-v">tkim.work1@gmail.com</div></div>
